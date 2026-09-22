@@ -12,10 +12,10 @@ export default function Footer() {
               <Image
                 src="/logo/logo.png"
                 alt="Nissan Business Solutions Logo"
-                width={180}
-                height={48}
+                width={140}
+                height={36}
                 style={{ width: "auto" }}
-                className="h-10 md:h-12 object-contain brightness-0 invert"
+                className="h-9 md:h-10 w-auto object-contain brightness-0 invert"
               />
             </a>
             <p className="text-[14px] text-[#E6F3F4]/80 leading-relaxed max-w-sm">

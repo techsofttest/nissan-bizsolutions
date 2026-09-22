@@ -43,10 +43,10 @@ export default function Header() {
           <Image
             src="/logo/logo.png"
             alt="Nissan Business Solutions Logo"
-            width={180}
-            height={48}
+            width={140}
+            height={36}
             style={{ width: "auto" }}
-            className={`h-10 md:h-10 object-contain transition-all ${scrolled ? "brightness-100 invert-0" : "brightness-0 invert"
+            className={`h-10 md:h-10 w-auto object-contain transition-all ${scrolled ? "brightness-100 invert-0" : "brightness-0 invert"
               }`}
             priority
           />
