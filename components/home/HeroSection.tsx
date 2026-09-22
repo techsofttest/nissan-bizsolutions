@@ -35,11 +35,12 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row items-end sm:items-center justify-end gap-3 pt-4">
             <Button
               href="#contact"
-              variant="primary"
+              variant="primary-dark"
               size="md"
+              className="!bg-white hover:!bg-[#E6F3F4] !text-[#101820] !border-white shadow-md font-bold"
               icon={
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                <svg className="w-4 h-4 text-[#101820]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               }
               iconPosition="right"

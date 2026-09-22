@@ -3,20 +3,75 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import ServicesMegaMenu from "@/components/global/ServicesMegaMenu";
 
 const servicesList = [
-  { title: "Business Registration", id: "business-registration" },
-  { title: "Tax & Government Registrations", id: "tax-registrations" },
-  { title: "Intellectual Property", id: "intellectual-property" },
-  { title: "Certifications", id: "certifications" },
-  { title: "Accounting & Financial Services", id: "accounting-financial" },
-  { title: "Licensing & Compliance", id: "licensing-compliance" }
+  {
+    title: "ACCOUNTING, TAXATION & BUSINESS FINANCIAL SERVICES",
+    id: "accounting-taxation",
+    items: [
+      "Preparing financial accounts, periodical returns, Internal auditing and Finalization of accounts",
+      "GST, KML, KGST & CST registrations, APPEAL, Revision etc.",
+      "Training Programs: Practical Training in Accounting (Manual & Computerized), Online EDP training, Sales Executives training",
+      "PAN and TAN applications",
+      "Tally Software Services, Customizations, Upgrade etc."
+    ]
+  },
+  {
+    title: "BUSINESS REGISTRATIONS, LICENCES & STATUTORY COMPLIANCE",
+    id: "business-registrations",
+    items: [
+      "Registration of Partnership firms, Reconstitution, Dissolution etc",
+      "Registration of LLP, Private Limited, Public Limited companies, OPC, Societies, Trusts etc.",
+      "Udyam registration",
+      "NOC from various Departments/Boards like Pollution Control Board, Factories and Boilers, Fire Force, DMO, Labour Department etc.",
+      "Licenses from Local Bodies",
+      "RERA Registration",
+      "KSWIFT Certification",
+      "DARPAN Registration",
+      "Drug License",
+      "Explosive License",
+      "FSSAI License, Registrations, Amendments and Renewals",
+      "I E Code Certification",
+      "Halal Certification",
+      "NCLT Proceedings, Take Over and Merger, Amalgamation, Documentation"
+    ]
+  },
+  {
+    title: "INTELLECTUAL PROPERTY, QUALITY & SPECIALIZED REGISTRATIONS",
+    id: "intellectual-property",
+    items: [
+      "Trademark Registration (India and Abroad), Trademark status checking, Opposition, Rectification, Legal Notices and Replies.",
+      "Patent Registration, Copyright certification",
+      "Quality Certification for products from Bureau of Indian Standards and for Firms ISO certifications",
+      "Registration with commodity boards, Export promotion council etc.",
+      "APEDA Registration",
+      "MPEDA Registration",
+      "Mining and Geology"
+    ]
+  },
+  {
+    title: "BUSINESS CONSULTANCY, PROJECTS, LICENSING & GROWTH SUPPORT",
+    id: "business-consultancy",
+    items: [
+      "Preparation of Feasible Project Reports for Business, Industrial Units and Service enterprises",
+      "Preparation of loan application and liaising with Financial Institutions",
+      "Preparing plan and estimate of industrial and commercial buildings",
+      "Systematize Business with relevant background study and market survey",
+      "Management and legal consultancy",
+      "Assistance in Marketing and Sales Promotion activities",
+      "Market survey and Feasibility studies",
+      "Entrepreneur Support schemes",
+      "Sick Units Rehabilitation Programme"
+    ]
+  }
 ];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [activeMobileCategory, setActiveMobileCategory] = useState<number | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,8 +88,8 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-        ? "bg-white/95 backdrop-blur-md py-4 text-[#101820] border-b border-[#D9E0E3] shadow-xs"
-        : "bg-gradient-to-b from-[#0F2628]/80 via-[#0F2628]/40 to-transparent py-6 text-white"
+        ? "bg-white/95 backdrop-blur-md py-4 text-[#101820] border-b border-[#D9E0E3] shadow-md"
+        : "bg-gradient-to-b from-[#0F2628]/95 via-[#0F2628]/80 to-transparent py-5 text-white"
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -46,7 +101,7 @@ export default function Header() {
             width={140}
             height={36}
             style={{ width: "auto" }}
-            className={`h-10 md:h-10 w-auto object-contain transition-all ${scrolled ? "brightness-100 invert-0" : "brightness-0 invert"
+            className={`h-7 md:h-10 w-auto object-contain transition-all ${scrolled ? "brightness-100 invert-0" : "brightness-0 invert"
               }`}
             priority
           />
@@ -54,83 +109,63 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <nav
-          className={`hidden lg:flex items-center space-x-8 text-[15px] font-medium transition-colors ${scrolled ? "text-[#43515A]" : "text-[#E6F3F4]"
+          className={`hidden lg:flex items-center space-x-8 text-[15px] font-medium transition-colors ${scrolled ? "text-[#101820]" : "text-white"
             }`}
         >
           <a
             href="#"
-            className={`transition-colors py-1 ${scrolled ? "hover:text-[#5FAAAD]" : "hover:text-white"
+            className={`transition-colors py-1 ${scrolled ? "hover:text-[#5FAAAD]" : "hover:text-[#5FAAAD]"
               }`}
           >
             Home
           </a>
           <a
             href="#about"
-            className={`transition-colors py-1 ${scrolled ? "hover:text-[#5FAAAD]" : "hover:text-white"
+            className={`transition-colors py-1 ${scrolled ? "hover:text-[#5FAAAD]" : "hover:text-[#5FAAAD]"
               }`}
           >
             About Us
           </a>
 
-          {/* Services Dropdown */}
-          <div className="relative group py-1">
+          {/* Full Width Services Mega Menu */}
+          <div className="group static py-1">
             <a
               href="#services"
-              className={`flex items-center gap-1 transition-colors ${scrolled ? "hover:text-[#5FAAAD]" : "hover:text-white"
+              className={`flex items-center gap-1.5 transition-colors font-semibold ${scrolled ? "hover:text-[#5FAAAD]" : "hover:text-[#5FAAAD]"
                 }`}
             >
               <span>Services</span>
               <svg
-                className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180 opacity-70 group-hover:opacity-100"
+                className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180 opacity-90 group-hover:opacity-100"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
               </svg>
             </a>
 
-            {/* Dropdown Menu */}
-            <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-72 z-50">
-              <div className="bg-white rounded-xl shadow-xl border border-[#D9E0E3] p-2 overflow-hidden text-[#101820]">
-                {servicesList.map((service, index) => (
-                  <a
-                    key={index}
-                    href="#services"
-                    className="flex items-center justify-between px-3 py-2.5 rounded-lg text-[14px] font-medium transition-colors hover:bg-[#E6F3F4]/60 hover:text-[#0F2628] group/item"
-                  >
-                    <span>{service.title}</span>
-                    <svg
-                      className="w-4 h-4 text-[#5FAAAD] opacity-70 group-hover/item:opacity-100 group-hover/item:translate-x-0.5 transition-all"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </a>
-                ))}
-              </div>
-            </div>
+            {/* Full-Width Mega Banner Component */}
+            <ServicesMegaMenu services={servicesList} />
           </div>
 
           <a
             href="#why-us"
-            className={`transition-colors py-1 ${scrolled ? "hover:text-[#5FAAAD]" : "hover:text-white"
+            className={`transition-colors py-1 ${scrolled ? "hover:text-[#5FAAAD]" : "hover:text-[#5FAAAD]"
               }`}
           >
             Why Choose Us
           </a>
           <a
             href="#ecosystem"
-            className={`transition-colors py-1 ${scrolled ? "hover:text-[#5FAAAD]" : "hover:text-white"
+            className={`transition-colors py-1 ${scrolled ? "hover:text-[#5FAAAD]" : "hover:text-[#5FAAAD]"
               }`}
           >
             Resources
           </a>
           <a
             href="#contact"
-            className={`transition-colors py-1 ${scrolled ? "hover:text-[#5FAAAD]" : "hover:text-white"
+            className={`transition-colors py-1 ${scrolled ? "hover:text-[#5FAAAD]" : "hover:text-[#5FAAAD]"
               }`}
           >
             Contact Us
@@ -139,7 +174,16 @@ export default function Header() {
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-4">
-          <Button href="#contact" variant="primary" size="sm">
+          <Button
+            href="#contact"
+            variant={scrolled ? "primary" : "primary-dark"}
+            size="sm"
+            icon={
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            }
+          >
             Get a Consultation
           </Button>
         </div>
@@ -164,7 +208,7 @@ export default function Header() {
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
         <div
-          className={`lg:hidden border-b px-6 py-6 flex flex-col space-y-3 animate-in slide-in-from-top duration-200 ${scrolled
+          className={`lg:hidden border-b px-6 py-6 flex flex-col space-y-4 animate-in slide-in-from-top duration-200 max-h-[85vh] overflow-y-auto custom-scrollbar ${scrolled
             ? "bg-white text-[#101820] border-[#D9E0E3]"
             : "bg-[#0F2628] text-white border-[#18393D]"
             }`}
@@ -185,18 +229,18 @@ export default function Header() {
           </a>
 
           {/* Mobile Services Accordion */}
-          <div>
+          <div className="border-y border-[#18393D]/40 py-2 my-1">
             <div className="flex items-center justify-between py-1">
               <a
                 href="#services"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[16px] font-medium hover:text-[#5FAAAD]"
+                className="text-[16px] font-bold hover:text-[#5FAAAD]"
               >
                 Services
               </a>
               <button
                 onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                className="p-1 focus:outline-none"
+                className="p-1 focus:outline-none text-[#5FAAAD]"
                 aria-label="Toggle services list"
               >
                 <svg
@@ -211,16 +255,47 @@ export default function Header() {
             </div>
 
             {mobileServicesOpen && (
-              <div className="pl-4 pt-1 pb-2 space-y-2 border-l-2 border-[#5FAAAD]/30 ml-1 mt-1">
+              <div className="pt-2 space-y-4">
                 {servicesList.map((service, index) => (
-                  <a
-                    key={index}
-                    href="#services"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block text-[14px] opacity-85 hover:opacity-100 hover:text-[#5FAAAD] py-1"
-                  >
-                    {service.title}
-                  </a>
+                  <div key={index} className="pl-2 border-l-2 border-[#5FAAAD]">
+                    <button
+                      onClick={() =>
+                        setActiveMobileCategory(activeMobileCategory === index ? null : index)
+                      }
+                      className="w-full text-left font-semibold text-[13.5px] text-[#5FAAAD] flex items-center justify-between py-1"
+                    >
+                      <span>{service.title}</span>
+                      <span className="text-xs">{activeMobileCategory === index ? "−" : "+"}</span>
+                    </button>
+
+                    {activeMobileCategory === index && (
+                      <div className="pl-2 pt-2 space-y-2">
+                        {service.items.map((item, i) => (
+                          <a
+                            key={i}
+                            href="#services"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="flex items-start gap-2 text-[12.5px] text-white/90 hover:text-[#5FAAAD] py-1"
+                          >
+                            <svg
+                              className="w-3.5 h-3.5 text-[#5FAAAD] shrink-0 mt-0.5"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              stroke="currentColor"
+                            >
+                              <path
+                                d="M4 3v7h8"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                            <span>{item}</span>
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
             )}
@@ -254,6 +329,11 @@ export default function Header() {
               size="md"
               className="w-full"
               onClick={() => setMobileMenuOpen(false)}
+              icon={
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              }
             >
               Get a Consultation
             </Button>

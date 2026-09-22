@@ -5,69 +5,65 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 export default function ServicesSection() {
   const servicesList = [
     {
-      title: "Business Registration",
-      description: "Support for establishing different forms of businesses and completing required registration processes.",
+      title: "Accounting, Taxation & Business Financial Services",
+      description: "Comprehensive financial accounting, audit, tax returns, and software solutions for your enterprise.",
       items: [
-        "Private Limited Company Registration",
-        "LLP Registration",
-        "OPC Registration",
-        "Partnership Firm Registration",
-        "Business Registration Assistance"
-      ],
-      image: "/service/Business Registration.png"
-    },
-    {
-      title: "Tax & Government Registrations",
-      description: "Assistance with key tax, government and business registrations.",
-      items: [
-        "GST Registration",
-        "PAN",
-        "TAN",
-        "MSME Registration",
-        "Other applicable registrations"
-      ],
-      image: "/service/Tax & Government Registrations.png"
-    },
-    {
-      title: "Intellectual Property",
-      description: "Support for protecting business identity, creative work and intellectual property.",
-      items: [
-        "Trademark Registration",
-        "Copyright Registration",
-        "Patent Services"
-      ],
-      image: "/service/Intellectual Property.png"
-    },
-    {
-      title: "Certifications",
-      description: "Support related to quality, business and certification requirements.",
-      items: [
-        "ISO Certification",
-        "ISI-related services",
-        "Business certifications",
-        "Compliance support"
-      ],
-      image: "/service/Certifications.png"
-    },
-    {
-      title: "Accounting & Financial Services",
-      description: "Professional assistance with accounts preparation, presentation and business documentation.",
-      items: [
-        "Accounts Preparation",
-        "Accounts Presentation",
-        "Business documentation",
-        "Financial support services"
+        "Preparing financial accounts, periodical returns, Internal auditing and Finalization of accounts",
+        "GST, KML, KGST & CST registrations, APPEAL, Revision etc.",
+        "Training Programs: Practical Training in Accounting (Manual & Computerized), Online EDP training, Sales Executives training",
+        "PAN and TAN applications",
+        "Tally Software Services, Customizations, Upgrade etc."
       ],
       image: "/service/Accounting & Financial Services.png"
     },
     {
-      title: "Licensing & Compliance",
-      description: "Assistance with business licences, regulatory requirements and government approvals.",
+      title: "Business Registrations, Licences & Statutory Compliance",
+      description: "End-to-end statutory registrations, government departmental approvals, and corporate compliance.",
       items: [
-        "Business Licenses",
-        "Regulatory Compliance",
-        "Government-related approvals",
-        "Documentation support"
+        "Registration of Partnership firms, Reconstitution, Dissolution etc",
+        "Registration of LLP, Private Limited, Public Limited companies, OPC, Societies, Trusts etc.",
+        "Udyam registration",
+        "NOC from various Departments/Boards like Pollution Control Board, Factories and Boilers, Fire Force, DMO, Labour Department etc.",
+        "Licenses from Local Bodies",
+        "RERA Registration",
+        "KSWIFT Certification",
+        "DARPAN Registration",
+        "Drug License",
+        "Explosive License",
+        "FSSAI License, Registrations, Amendments and Renewals",
+        "I E Code Certification",
+        "Halal Certification",
+        "NCLT Proceedings, Take Over and Merger, Amalgamation, Documentation"
+      ],
+      image: "/service/Business Registration.png"
+    },
+    {
+      title: "Intellectual Property, Quality & Specialized Registrations",
+      description: "Protecting brand assets, quality certifications, and commodity board registrations.",
+      items: [
+        "Trademark Registration (India and Abroad), Trademark status checking, Opposition, Rectification, Legal Notices and Replies.",
+        "Patent Registration, Copyright certification",
+        "Quality Certification for products from Bureau of Indian Standards and for Firms ISO certifications",
+        "Registration with commodity boards, Export promotion council etc.",
+        "APEDA Registration",
+        "MPEDA Registration",
+        "Mining and Geology"
+      ],
+      image: "/service/Intellectual Property.png"
+    },
+    {
+      title: "Business Consultancy, Projects, Licensing & Growth Support",
+      description: "Project reporting, management consultancy, market studies, and business rehabilitation.",
+      items: [
+        "Preparation of Feasible Project Reports for Business, Industrial Units and Service enterprises",
+        "Preparation of loan application and liaising with Financial Institutions",
+        "Preparing plan and estimate of industrial and commercial buildings",
+        "Systematize Business with relevant background study and market survey",
+        "Management and legal consultancy",
+        "Assistance in Marketing and Sales Promotion activities",
+        "Market survey and Feasibility studies",
+        "Entrepreneur Support schemes",
+        "Sick Units Rehabilitation Programme"
       ],
       image: "/service/Licensing & Compliance.png"
     }
@@ -87,14 +83,14 @@ export default function ServicesSection() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {servicesList.map((service, index) => (
             <ScrollReveal key={index} delay={index * 100} direction="up">
               <div
-                className="relative bg-white rounded-sm overflow-hidden group transition-all duration-500 hover:bg-[#0F2628] h-[460px] shadow-sm hover:shadow-xl"
+                className="relative bg-white rounded-sm overflow-hidden group transition-all duration-500 hover:bg-[#0F2628] h-[520px] shadow-sm hover:shadow-xl"
               >
                 {/* Image Container: Pushed UPWARD off screen on hover */}
-                <div className="absolute top-0 inset-x-0 h-[240px] w-full overflow-hidden transition-all duration-500 ease-in-out group-hover:-translate-y-full group-hover:opacity-0 z-0">
+                <div className="absolute top-0 inset-x-0 h-[260px] w-full overflow-hidden transition-all duration-500 ease-in-out group-hover:-translate-y-full group-hover:opacity-0 z-0">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -103,20 +99,20 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Bottom Content Panel: Slides UPWARD to take over the entire card area on hover */}
-                <div className="absolute bottom-0 inset-x-0 h-[220px] group-hover:h-full p-6 flex flex-col justify-between transition-all duration-500 ease-in-out bg-white group-hover:bg-[#0F2628] z-10">
-                  <div className="space-y-3">
-                    <h3 className="text-xl font-bold text-[#101820] group-hover:text-white transition-colors duration-300">
+                <div className="absolute bottom-0 inset-x-0 h-[260px] group-hover:h-full p-6 sm:p-8 flex flex-col justify-between transition-all duration-500 ease-in-out bg-white group-hover:bg-[#0F2628] z-10 overflow-hidden">
+                  <div className="space-y-3 flex-1 flex flex-col min-h-0">
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#101820] group-hover:text-white transition-colors duration-300">
                       {service.title}
                     </h3>
-                    <p className="text-[14px] text-[#43515A] group-hover:text-[#E6F3F4]/90 leading-relaxed transition-colors duration-300 line-clamp-3">
+                    <p className="text-[14px] text-[#43515A] group-hover:text-[#E6F3F4]/90 leading-relaxed transition-colors duration-300">
                       {service.description}
                     </p>
 
                     {/* Sub-categories list: revealed as the panel expands upward */}
-                    <div className="opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-64 transition-all duration-500 ease-in-out overflow-hidden pt-0 group-hover:pt-4 border-t border-transparent group-hover:border-[#18393D]">
-                      <ul className="space-y-2">
+                    <div className="opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-[280px] transition-all duration-500 ease-in-out overflow-y-auto pt-0 group-hover:pt-4 border-t border-transparent group-hover:border-[#18393D] pr-2 custom-scrollbar">
+                      <ul className="space-y-2.5">
                         {service.items.map((item, i) => (
-                          <li key={i} className="text-[14px] text-[#E6F3F4] flex items-start gap-2">
+                          <li key={i} className="text-[13.5px] text-[#E6F3F4] flex items-start gap-2.5 leading-snug">
                             <svg className="w-4 h-4 text-[#5FAAAD] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                             </svg>

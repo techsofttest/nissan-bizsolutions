@@ -1,7 +1,7 @@
 import React from "react";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "tertiary";
+  variant?: "primary" | "primary-dark" | "secondary" | "tertiary";
   size?: "sm" | "md" | "lg";
   icon?: React.ReactNode;
   iconPosition?: "left" | "right";
@@ -27,12 +27,14 @@ export default function Button({
     lg: "px-1 py-2 text-[15px]",
   };
 
-  // High-contrast variant styles matching #5FAAAD palette
+  // Contrast-driven variant styles (Black on light bg, White on dark bg)
   const variantClasses = {
     primary:
-      "bg-[#4A9396] hover:bg-[#346F72] text-white shadow-lg hover:shadow-xl border border-[#5FAAAD]/30 font-semibold tracking-wide rounded-sm px-6 py-3",
+      "bg-[#101820] hover:bg-[#0F2628] text-white shadow-sm hover:shadow-lg font-semibold tracking-wide rounded-md px-6 py-3 border border-[#101820]",
+    "primary-dark":
+      "bg-white hover:bg-[#E6F3F4] text-[#101820] shadow-sm hover:shadow-lg font-semibold tracking-wide rounded-md px-6 py-3 border border-white",
     secondary:
-      "bg-black/40 hover:bg-black/65 text-white border border-white/60 hover:border-white font-semibold backdrop-blur-md shadow-md rounded-sm px-6 py-3",
+      "bg-black/40 hover:bg-black/65 text-white border border-white/60 hover:border-white font-semibold backdrop-blur-md shadow-md rounded-md px-6 py-3",
     tertiary:
       "bg-transparent text-[#0F2628] hover:text-[#5FAAAD] font-semibold border-none shadow-none underline-offset-4 hover:underline p-0",
   };
