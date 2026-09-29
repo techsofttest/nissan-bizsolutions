@@ -88,21 +88,22 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-        ? "bg-white/95 backdrop-blur-md py-4 text-[#101820] border-b border-[#D9E0E3] shadow-md"
+        ? "bg-white backdrop-blur-md py-4 text-[#101820] border-b border-[#D9E0E3] shadow-md"
         : "bg-gradient-to-b from-[#0F2628]/95 via-[#0F2628]/80 to-transparent py-5 text-white"
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" className="flex items-center group">
+        <a href="#" className="relative flex items-center group py-2.5 px-6 md:px-8">
+          {/* Sliced White Background Badge fully covering the logo */}
+          <span className="absolute top-[-2rem] bottom-[-1rem] -left-[100vw] -right-8 md:-right-16 bg-white shadow-md transform [clip-path:polygon(0_0,100%_0,95%_100%,0_100%)] group-hover:bg-white/95 transition-all duration-300 pointer-events-none z-0" />
+
           <Image
             src="/logo/logo.png"
             alt="Nissan Business Solutions Logo"
-            width={140}
-            height={36}
+            width={160}
+            height={40}
             style={{ width: "auto" }}
-            className={`h-7 md:h-10 w-auto object-contain transition-all ${scrolled ? "brightness-100 invert-0" : "brightness-0 invert"
-              }`}
+            className="relative z-10 h-8 md:h-10 w-auto object-contain brightness-100 invert-0 transition-transform duration-300 group-hover:scale-[1.02]"
             priority
           />
         </a>
