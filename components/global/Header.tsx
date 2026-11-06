@@ -20,7 +20,7 @@ interface HeaderProps {
   service: ServiceCategory[];
 }
 
-export default function Header({ service }: HeaderProps) {
+export default function Header({ service = [] }: HeaderProps) {
   const pathname = usePathname();
 
   const [scrolled, setScrolled] = useState(false);
@@ -100,21 +100,26 @@ export default function Header({ service }: HeaderProps) {
           </Link>
 
           {/* Services mega menu */}
-          <div className="group/services relative py-2">
-            <Link
+          <div className="group static py-1">
+            <a
               href="/service"
-              className={`${navLinkClass} flex items-center gap-1.5 font-semibold`}
+              className={`flex items-center gap-1.5 transition-colors font-semibold ${scrolled ? "hover:text-[#5FAAAD]" : "hover:text-[#5FAAAD]"
+                }`}
             >
-              Services
-              <ChevronDown
-                size={15}
-                className="transition-transform duration-200 group-hover/services:rotate-180"
-              />
-            </Link>
+              <span>Services</span>
+              <svg
+                className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180 opacity-90 group-hover:opacity-100"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
 
-            {service.length > 0 && (
-              <ServicesMegaMenu services={service} />
-            )}
+            {/* Full-Width Mega Banner Component */}
+            {service && <ServicesMegaMenu services={service} />}
+
           </div>
 
           <Link href="/why-us" className={navLinkClass}>
@@ -282,7 +287,9 @@ export default function Header({ service }: HeaderProps) {
                         >
                           {category.title}
                         </Link>
+
                       </div>
+
                     </div>
                   ))}
 
