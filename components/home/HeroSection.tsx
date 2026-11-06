@@ -5,7 +5,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function HeroSection({hero}:{hero:any}) {
   return (
-    <section className="relative bg-[#0F2628] text-white pt-24 pb-4 md:pt-32 md:pb-6 overflow-hidden flex items-center h-[100vh]">
+    <section id="home-hero" className="relative bg-[#0F2628] text-white pt-24 pb-4 md:pt-32 md:pb-6 overflow-hidden flex items-center h-[100vh]">
       {/* Background Image with Dark Overlay */}
       <div className="absolute inset-0 z-0">
         <Image

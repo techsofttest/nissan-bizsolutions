@@ -2,20 +2,52 @@
 
 import Link from "next/link";
 import { Phone } from "lucide-react";
+import { useEffect, useState } from "react";
 
-export default function WhatsAppButton({whatsappNumber,phoneNumber}:{whatsappNumber:any,phoneNumber:any}) {
-  const whatsapp = whatsappNumber.replace(/\D/g, "");
-  const phone = phoneNumber.replace(/[^\d+]/g, "");
+export default function WhatsAppButton({
+  whatsappNumber,
+  phoneNumber,
+}: {
+  whatsappNumber: any;
+  phoneNumber: any;
+}) {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const hero = document.getElementById("home-hero");
+
+    if (!hero) {
+      setVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVisible(!entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(hero);
+
+    return () => observer.disconnect();
+  }, []);
+
+  if (!visible) return null;
+
+  const whatsapp = (whatsappNumber || "").replace(/\D/g, "");
+  const phone = (phoneNumber || "").replace(/[^\d+]/g, "");
+
   return (
-<div className="fixed bottom-6 right-6 z-[9999] flex flex-col gap-3">
+    <div className="fixed bottom-6 right-6 z-[9999] flex flex-col gap-3">
       {/* Phone button */}
-     <Link
-    href={`tel:${phone}`}
-    aria-label="Call us"
-    className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#0056D2] text-white shadow-xl transition-transform duration-300 hover:scale-110"
-  >
-    <Phone size={25} strokeWidth={2.2} />
-  </Link>
+      <Link
+        href={`tel:${phone}`}
+        aria-label="Call us"
+        className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#0056D2] text-white shadow-xl transition-transform duration-300 hover:scale-110"
+      >
+        <Phone size={25} strokeWidth={2.2} />
+      </Link>
 
       {/* WhatsApp button */}
       <Link
